@@ -1,0 +1,22 @@
+---
+# tasks file for postgresql
+- name: install progresql
+  yum:
+    name: postgresql-server
+    state: latest
+- name: enable postgresql at boot
+  service:
+    name: postgresql
+    state: started
+    enabled: yes
+
+      #  - name: tell user to finish setting up postgres
+      #    debug:
+        #      msg: "Either uncomment the postgres setup or manually login and initialize"
+
+ # only run the next 2 tasks once!
+#  - name: initilize postgres
+#    command: postgresql-setup initdb
+#  - name: initilize postgres some more
+#    command: chkconfig postgresql on
+
